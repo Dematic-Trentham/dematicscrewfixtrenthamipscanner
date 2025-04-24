@@ -27,7 +27,6 @@ jobs:
     # needs: Build_Test_and_Run
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -49,17 +48,17 @@ jobs:
 
       - name: Build Image
         run: |
-          docker build -t dematicscrewfixtrenthamsorterjourneys:latest -f Dockerfile . --progress=plain --no-cache
+          docker build -t dematicscrewfixtrenthamipscanner:latest -f Dockerfile . --progress=plain --no-cache
 
       - name: Push Image
         run: |
-          docker tag dematicscrewfixtrenthamsorterjourneys:latest jwlyons/dematicscrewfixtrenthamsorterjourneys:latest
-          docker push jwlyons/dematicscrewfixtrenthamsorterjourneys:latest
-          docker tag dematicscrewfixtrenthamsorterjourneys:latest jwlyons/dematicscrewfixtrenthamsorterjourneys:${{ steps.metadata.outputs.version }}
-          docker push jwlyons/dematicscrewfixtrenthamsorterjourneys:${{ steps.metadata.outputs.version }}
+          docker tag dematicscrewfixtrenthamipscanner:latest jwlyons/dematicscrewfixtrenthamipscanner:latest
+          docker push jwlyons/dematicscrewfixtrenthamipscanner:latest
+          docker tag dematicscrewfixtrenthamipscanner:latest jwlyons/dematicscrewfixtrenthamipscanner:${{ steps.metadata.outputs.version }}
+          docker push jwlyons/dematicscrewfixtrenthamipscanner:${{ steps.metadata.outputs.version }}
 
       - name: Remove Docker Images
         run: |
-          docker rmi dematicscrewfixtrenthamsorterjourneys:latest
-          docker rmi jwlyons/dematicscrewfixtrenthamsorterjourneys:latest
-          docker rmi jwlyons/dematicscrewfixtrenthamsorterjourneys:${{ steps.metadata.outputs.version }}
+          docker rmi dematicscrewfixtrenthamipscanner:latest
+          docker rmi jwlyons/dematicscrewfixtrenthamipscanner:latest
+          docker rmi jwlyons/dematicscrewfixtrenthamipscanner:${{ steps.metadata.outputs.version }}
