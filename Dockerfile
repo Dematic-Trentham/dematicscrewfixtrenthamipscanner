@@ -1,5 +1,4 @@
-FROM node:18-alpine AS base
-
+FROM node:18-alpine3.20 AS base
 # Stage 1: Builder
 FROM base AS builder
 
@@ -12,7 +11,7 @@ RUN apk add --no-cache git
 COPY package.json ./
 
 # Install dependencies
-RUN npm install 
+RUN npm install --legacy-peer-deps
 RUN npm install -g typescript
 
 # Install OpenSSL
