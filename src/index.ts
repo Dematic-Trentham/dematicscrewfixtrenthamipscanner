@@ -26,8 +26,8 @@ logger.info("Starting PLC Pinger To DB Service ....");
 
 logger.info("Starting PLC Pinger To DB Service v" + version + " ....");
 
-//every 10 seconds
-cron.schedule("*/10 * * * * *", () => {
+//every 1 minute
+cron.schedule("*/1 * * * *", () => {
   logger.info("Running PLC Pinger To DB Service ....");
 
   scanAllIps(); //get all ips from db to scan
