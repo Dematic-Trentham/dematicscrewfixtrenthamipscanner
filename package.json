@@ -1,0 +1,45 @@
+{
+  "name": "dematicscrewfixtrenthamipscanner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "clean": "rimraf dist",
+    "start": "node index.js",
+    "startDev": "node --max_old_space_size=4072 build/index.js",
+    "startDevWatch": "nodemon --max_old_space_size=3072 build/index.js",
+    "startDev2Watch": "nodemon src/index.ts",
+    "startDevDockInspect": "nodemon build/index.js --inspect-brk=0.0.0.0",
+    "buildOnce": "tsc",
+    "build": "tsc --watch",
+    "prisma-merge": "prisma format --schema=./node_modules/masterPrismaSchema/prisma/schema/ && npm run prisma-gen && echo 'complete!'",
+    "prisma-gen": "prisma generate --schema=./node_modules/masterPrismaSchema/prisma/schema",
+    "prisma-pull": "npx prisma db pull --schema=./node_modules/masterPrismaSchema/prisma/schema",
+    "prisma-push": "npx prisma db push --schema=./node_modules/masterPrismaSchema/prisma/schema",
+    "packageJsonStripper": "node tools/packageJsonStripper.js",
+    "build-docker": "docker build -t dematicscrewfixtrenthamsorterjourneys . --no-cache --progress=plain"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@prisma/client": "^5.19.1",
+    "dotenv": "^16.4.5",
+    "moment": "^2.30.1",
+    "node-cron": "^3.0.3",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0",
+    "node-snap7": "^1.0.7",
+    "ping": "^0.4.4"
+  },
+  "devDependencies": {
+    "@types/node-cron": "^3.0.11",
+    "@types/ssh2-sftp-client": "^9.0.4",
+    "masterPrismaSchema": "git+https://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:x-oauth-basic@github.com/jameswlyons/dematicDashboardScrewfixTrenthamMasterPrismaSchema.git",
+    "prisma": "^5.19.1",
+    "rimraf": "^5.0.1",
+    "@types/ping": "^0.4.4",
+    "@types/node": "^20.6.2",
+    "@types/node-snap7": "^0.2.24"
+  }
+}
