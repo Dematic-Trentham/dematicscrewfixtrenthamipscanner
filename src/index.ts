@@ -12,7 +12,7 @@ import cron from "node-cron";
 import fs from "fs";
 
 import logger from "./misc/logging.js";
-//build
+
 import { scanAllIps } from "./scanner/scanner.js";
 
 // Handle unhandled promise rejections
