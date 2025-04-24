@@ -12,7 +12,7 @@ RUN apk add --no-cache git
 COPY package.json ./
 
 # Install dependencies
-RUN npm install --legacy-peer-deps
+RUN npm install 
 RUN npm install -g typescript
 
 # Install OpenSSL
