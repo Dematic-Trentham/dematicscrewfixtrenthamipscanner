@@ -14,6 +14,7 @@ import fs from "fs";
 import logger from "./misc/logging.js";
 
 import { scanAllIps } from "./scanner/scanner.js";
+import deleteOldHistory from "./scanner/cleaner.js";
 
 // Handle unhandled promise rejections
 process.on("unhandledRejection", (reason, promise) => {
@@ -32,3 +33,10 @@ cron.schedule("*/1 * * * *", () => {
 
   scanAllIps(); //get all ips from db to scan
 });
+
+//ever night lets delete some history in the db
+cron.schedule("0 0 * * *", () => {
+  deleteOldHistory(); //delete old history from the db
+});
+
+deleteOldHistory();
