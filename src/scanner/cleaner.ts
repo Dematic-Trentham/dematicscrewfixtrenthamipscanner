@@ -47,9 +47,9 @@ async function deleteOldHistory() {
   const deletedCount2 = await db.$executeRawUnsafe(`
     DELETE FROM pingHistory
     WHERE MINUTE(createdAt) <> 0
-      AND createdAt < NOW() - INTERVAL 1 DAY
+      AND createdAt < NOW() - INTERVAL 7 DAY
   `);
 
-  logger.info("Deleted all history older than 1 days, that is not on the hour " + deletedCount2 + " rows");
+  logger.info("Deleted all history older than 7 days, that is not on the hour " + deletedCount2 + " rows");
 }
 export default deleteOldHistory;
